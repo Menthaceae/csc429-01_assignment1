@@ -1,12 +1,12 @@
 frontier = []
 explored = []
 
-def dfs(start, goal):
+def bfs(start, goal):
         frontier.append(start)
-        result = dfsrecurs(goal)
+        result = bfsrecurs(goal)
 
         if result == 0:
-                print("Path found from " + start.name + " to " + goal.name + " using DFS: ")
+                print("Path found from " + start.name + " to " + goal.name + " using BFS: ")
                 for node in explored:
                         print(node.name, end=" ")
         elif result == 1:
@@ -17,11 +17,11 @@ def dfs(start, goal):
         frontier.clear()
         explored.clear()
 
-def dfsrecurs(goal):
+def bfsrecurs(goal):
         if not frontier: # No solution
                 return 1
         else:
-                removed = frontier.pop()
+                removed = frontier.pop(0)
                 if removed == goal: # Found solution
                         explored.append(removed)
                         return 0
@@ -30,4 +30,4 @@ def dfsrecurs(goal):
                         for neighbor in removed.neighbors:
                                 frontier.append(neighbor)
 
-                        return dfsrecurs(goal)    
+                        return bfsrecurs(goal)
