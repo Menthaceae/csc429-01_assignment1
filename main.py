@@ -1,6 +1,7 @@
 import node
 import bfs
 import dfs
+import dls
 
 A = node.Node("A")
 B = node.Node("B")
@@ -8,7 +9,6 @@ C = node.Node("C")
 D = node.Node("D")
 E = node.Node("E")
 F = node.Node("F")
-
 A.add([B])
 B.add([C, D])
 C.add([E])
@@ -54,7 +54,6 @@ P = node.Node("P")
 Q = node.Node("Q")
 R = node.Node("R")
 S = node.Node("S")
-
 A.add([C, S])
 B.add([N, O])
 C.add([A, D])
@@ -83,3 +82,6 @@ print("\n___________________________________\n")
 print("Part D")
 dfs.dfs(A, B)
 print("\n___________________________________\n")
+
+print("DLS")
+dls.dls(A, B, 2)
