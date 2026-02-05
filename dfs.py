@@ -28,6 +28,7 @@ def dfsrecurs(goal):
                 else: 
                         explored.append(removed)
                         for neighbor in removed.neighbors:
-                                frontier.append(neighbor)
+                                if neighbor not in explored:
+                                        frontier.append(neighbor)
 
                         return dfsrecurs(goal)    

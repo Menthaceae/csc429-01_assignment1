@@ -28,6 +28,7 @@ def bfsrecurs(goal):
                 else: 
                         explored.append(removed)
                         for neighbor in removed.neighbors:
+                            if neighbor not in explored:
                                 frontier.append(neighbor)
 
                         return bfsrecurs(goal)
