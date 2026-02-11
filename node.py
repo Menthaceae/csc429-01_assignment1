@@ -6,3 +6,4 @@ class Node:
     def add(self, nodes):
         for neighbor in nodes:
             self.neighbors.append(neighbor)
+            
