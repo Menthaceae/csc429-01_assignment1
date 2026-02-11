@@ -14,8 +14,9 @@ B.add([C, D])
 C.add([E])
 D.add([F])
 
-print("\n___________________________________\n")
+print("___________________________________\n")
 # Part A
+print("Problem 1")
 print("Part A")
 bfs.bfs(A, E)
 print("\n___________________________________\n")
@@ -74,7 +75,6 @@ Q.add([P, R])
 R.add([Q, S])
 S.add([A, R])
 
-
 print("Part C")
 bfs.bfs(A, B)
 print("\n___________________________________\n")
@@ -83,5 +83,10 @@ print("Part D")
 dfs.dfs(A, B)
 print("\n___________________________________\n")
 
+print("Problem 2 ")
 print("DLS")
-dls.dls(A, B, 2)
+dls.dls(A, B, 4)
+print("\n")
+
+print("DLS")
+dls.dls(A, B, 8)

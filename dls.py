@@ -4,23 +4,21 @@ limit = 0
 
 def dls(start, goal, limit):
     frontier.append(start)
-    result = dlsrecurs(goal, limit)
+    result = dlsrecurs(goal, limit, 0)
 
     if result == 0:
-            print("Path found from " + start.name + " to " + goal.name + " using DFS: ")
+            print(f"Path found from {start.name} to {goal.name} using DLS with a limit of {limit}: ")
             for node in explored:
                     print(node.name, end=" ")
     elif result == 1:
-            print("No solution found")
-    else:
-            print("Exceeded depth limit")
+            print("No solution found. Printing path taken:")
             for node in explored:
-                    print(node.name, end=" ")            
+                    print(node.name, end=" ")           
 
     frontier.clear()
     explored.clear()
 
-def dlsrecurs(goal, limit):
+def dlsrecurs(goal, limit, currentDepth):    
     if not frontier: # No solution
             return 1
     else:
@@ -31,9 +29,9 @@ def dlsrecurs(goal, limit):
             else: 
                     explored.append(removed)
                     for neighbor in removed.neighbors:
-                            if neighbor not in explored:
+                            if neighbor not in explored and currentDepth <= limit:
                                     frontier.append(neighbor)
-                    while limit > 0:
-                        limit -= 1
-                      
-                        return dlsrecurs(goal, limit)    
+                                    currentDepth += 1
+
+                
+                    return dlsrecurs(goal, limit, currentDepth)  
