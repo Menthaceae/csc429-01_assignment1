@@ -89,4 +89,4 @@ dls.dls(A, B, 4)
 print("\n")
 
 print("DLS")
-dls.dls(A, B, 3)
+dls.dls(A, B, 8)

@@ -6,11 +6,11 @@ def dfs(start, goal):
     result = dfsrecurs(goal)
 
     if result == 0:
-        print("Path found from " + start.name + " to " + goal.name + " using DFS: ")
+        print(f"Path found from {start.name} to {goal.name} using DFS: ")
         for node in explored:
             print(node.name, end=" ")
     elif result == 1:
-        print("No solution found")
+        print("No solution found.")
     else:
         print("Unkown error")            
 
@@ -20,15 +20,15 @@ def dfs(start, goal):
 def dfsrecurs(goal):
     if not frontier: # No solution
         return 1
-    else:
-        removed = frontier.pop()
-        if removed == goal: # Found solution
-            explored.append(removed)
-            return 0
-        else: 
-            explored.append(removed)
-            for neighbor in removed.neighbors:
-                if neighbor not in explored:
-                    frontier.append(neighbor)
+    
+    currentNode = frontier.pop()
+    explored.append(currentNode)
+    
+    if currentNode == goal: # Found solution
+        return 0
+    
+    for neighbor in currentNode.neighbors:
+        if neighbor not in explored:
+            frontier.append(neighbor)
 
-            return dfsrecurs(goal)    
+    return dfsrecurs(goal)    
